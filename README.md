@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+## 똑똑한 중고차 개발테스트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 프로젝트 기간
 
-## Available Scripts
+- 2021년 2월 8일 오후 5시 ~ 2021년 2월 10일 오후 6시
 
-In the project directory, you can run:
+### 기술스택
 
-### `yarn start`
+- React, Styled-Component, Type-Script, Redux(예정), firebase(예정)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 코드에 대한 설명
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 기존에 구상했던 앱설계안은 Redux를 사용해서 modules에 action, type, reducer를 사용할 예정이었습니다. 로직은 containers에 있는 폴더에서 처리하려고 하였습니다.
+- 코드의 재활용성을 위해서, 먼져, 1개씩 구현할 수 있는 것도, 객체 단위로 설정을 하려고 노력하였습니다.
+- 먼져, CarInformation 컴포넌트는 Collapse 기능이 있습니다. 아이콘을 클릭하면, 클래스네임이 바뀌고, 아래 내용이 나타나도록 설정하였습니다.
+- 그리고 AccidentsHistory 컴포넌트는 사고이력과 사고이력없음을 선택할 수 있도록 만들었습니다. 클래스네임만 바꿔주면, 될 것으로 생각해서 로직을 만들었는데, 나중에 확인해 본 결과 사고이력있음을 클릭해도 사고이력없음으로 바뀌는 에러를 확인했습니다. 이부분은 id에 따라서 변경이 되도록 다시 로직을 짜면 될 것으로 생각합니다.
+- Companys 컴포넌트는 제조사 관련된 로직이 들어있습니다. 먼져 객체 안에 1~6번까지 제조사를 넣어두었고, 각각의 id를 설정해 주었습니다. 그리고, Company라는 컴포넌트를 만들어서 각각의 제조사의 id가 사용자가 클릭한 제조사의 id와 같으면 색깔이 바뀌도록 하였습니다.
 
-### `yarn test`
+### 나머지 로직에 대한 설계
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 서버에 N개의 이미지를 어떻게 보내면 효율적일지, 생각을 해보았지만, 어떻게 해야 효율적일지는 잘 모르겠습니다. 각각의 이미지 파일크기를 제한을 두는 건 어떨까, 하는 생각을 해보았지만 그것이 답은 아닌듯 한 것 같습니다.
 
-### `yarn build`
+### 질문사항
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. 제가 사용한 코드들이 최적화함에 있어 어떤문제들이 있을지 궁금합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 아쉬운점
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Redux, Firebase, MaterialUI를 사용하지 못하고 과제를 제출하게 되어서 아쉽습니다.
+2. UseCallback, Memo 등을 이용해서 제가 아는 범위안에서 최적화를 진행하고 싶었는데, 하지 못해서 아쉽습니다.
+3. Type-Script를 any를 너무 많이 사용한 것 같아서 아쉽습니다.
+4. Styled-Component의 Mixin을 더 잘 사용해서, 중복되는 것들이 없도록 해야 했는데, 그러지 못해서 아쉽습니다. (ex. font-weight 등)
+5. git로는 배포를 해보았는데, varcel는 한 번도 안해봐서, 다음에 기회가 된다면 한 번 해보고 싶습니다.
